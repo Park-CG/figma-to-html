@@ -1,0 +1,188 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  button,
+  input,
+  select,
+  textarea {
+    @apply appearance-none bg-transparent border-0 outline-none;
+  }
+}
+
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .all-\[unset\] {
+    all: unset;
+  }
+}
+
+:root {
+  --www-toat-co-kr-noto-sans-KR-bold-font-family: "Noto Sans KR", Helvetica;
+  --www-toat-co-kr-noto-sans-KR-bold-font-size: 14px;
+  --www-toat-co-kr-noto-sans-KR-bold-font-style: normal;
+  --www-toat-co-kr-noto-sans-KR-bold-font-weight: 700;
+  --www-toat-co-kr-noto-sans-KR-bold-letter-spacing: 0px;
+  --www-toat-co-kr-noto-sans-KR-bold-line-height: 16.799999237060547px;
+  --www-toat-co-kr-noto-sans-KR-regular-font-family: "Noto Sans KR", Helvetica;
+  --www-toat-co-kr-noto-sans-KR-regular-font-size: 16px;
+  --www-toat-co-kr-noto-sans-KR-regular-font-style: normal;
+  --www-toat-co-kr-noto-sans-KR-regular-font-weight: 400;
+  --www-toat-co-kr-noto-sans-KR-regular-letter-spacing: 0px;
+  --www-toat-co-kr-noto-sans-KR-regular-line-height: 24px;
+  --www-toat-co-kr-roboto-mono-regular-font-family: "Roboto Mono", Helvetica;
+  --www-toat-co-kr-roboto-mono-regular-font-size: 14px;
+  --www-toat-co-kr-roboto-mono-regular-font-style: normal;
+  --www-toat-co-kr-roboto-mono-regular-font-weight: 400;
+  --www-toat-co-kr-roboto-mono-regular-letter-spacing: 0px;
+  --www-toat-co-kr-roboto-mono-regular-line-height: 16.799999237060547px;
+  --www-toat-co-kr-semantic-heading-2-font-family: "Apple SD Gothic Neo",
+    Helvetica;
+  --www-toat-co-kr-semantic-heading-2-font-size: 45px;
+  --www-toat-co-kr-semantic-heading-2-font-style: normal;
+  --www-toat-co-kr-semantic-heading-2-font-weight: 700;
+  --www-toat-co-kr-semantic-heading-2-letter-spacing: 0px;
+  --www-toat-co-kr-semantic-heading-2-line-height: 54px;
+  --www-toat-co-kr-semantic-heading-3-font-family: "Apple SD Gothic Neo",
+    Helvetica;
+  --www-toat-co-kr-semantic-heading-3-font-size: 36px;
+  --www-toat-co-kr-semantic-heading-3-font-style: normal;
+  --www-toat-co-kr-semantic-heading-3-font-weight: 700;
+  --www-toat-co-kr-semantic-heading-3-letter-spacing: 0px;
+  --www-toat-co-kr-semantic-heading-3-line-height: 43.189998626708984px;
+  --www-toat-co-kr-semantic-heading-4-font-family: "Noto Sans KR", Helvetica;
+  --www-toat-co-kr-semantic-heading-4-font-size: 16px;
+  --www-toat-co-kr-semantic-heading-4-font-style: normal;
+  --www-toat-co-kr-semantic-heading-4-font-weight: 700;
+  --www-toat-co-kr-semantic-heading-4-letter-spacing: 0px;
+  --www-toat-co-kr-semantic-heading-4-line-height: 19.200000762939453px;
+  --www-toat-co-kr-semantic-heading-5-font-family: "Noto Sans KR", Helvetica;
+  --www-toat-co-kr-semantic-heading-5-font-size: 20px;
+  --www-toat-co-kr-semantic-heading-5-font-style: normal;
+  --www-toat-co-kr-semantic-heading-5-font-weight: 400;
+  --www-toat-co-kr-semantic-heading-5-letter-spacing: 0px;
+  --www-toat-co-kr-semantic-heading-5-line-height: 24px;
+  --www-toat-co-kr-semantic-link-font-family: "Roboto Mono", Helvetica;
+  --www-toat-co-kr-semantic-link-font-size: 12px;
+  --www-toat-co-kr-semantic-link-font-style: normal;
+  --www-toat-co-kr-semantic-link-font-weight: 400;
+  --www-toat-co-kr-semantic-link-letter-spacing: 0px;
+  --www-toat-co-kr-semantic-link-line-height: 14.399999618530273px;
+  --www-toat-co-kr-semantic-strong-font-family: "Roboto Mono", Helvetica;
+  --www-toat-co-kr-semantic-strong-font-size: 14px;
+  --www-toat-co-kr-semantic-strong-font-style: normal;
+  --www-toat-co-kr-semantic-strong-font-weight: 700;
+  --www-toat-co-kr-semantic-strong-letter-spacing: 0px;
+  --www-toat-co-kr-semantic-strong-line-height: 16.799999237060547px;
+  --wwwtoatcokralizarin-crimson: rgba(236, 41, 41, 1);
+}
+
+:root {
+  --animate-spin: spin 1s linear infinite;
+}
+
+.animate-fade-in {
+  animation: fade-in 1s var(--animation-delay, 0s) ease forwards;
+}
+
+.animate-fade-up {
+  animation: fade-up 1s var(--animation-delay, 0s) ease forwards;
+}
+
+.animate-marquee {
+  animation: marquee var(--duration) infinite linear;
+}
+
+.animate-marquee-vertical {
+  animation: marquee-vertical var(--duration) linear infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 8s infinite;
+}
+
+.animate-spin {
+  animation: var(--animate-spin);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@keyframes image-glow {
+  0% {
+    opacity: 0;
+    animation-timing-function: cubic-bezier(0.74, 0.25, 0.76, 1);
+  }
+
+  10% {
+    opacity: 0.7;
+    animation-timing-function: cubic-bezier(0.12, 0.01, 0.08, 0.99);
+  }
+
+  to {
+    opacity: 0.4;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes shimmer {
+  0%,
+  90%,
+  to {
+    background-position: calc(-100% - var(--shimmer-width)) 0;
+  }
+
+  30%,
+  60% {
+    background-position: calc(100% + var(--shimmer-width)) 0;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate(0);
+  }
+
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+
+@keyframes marquee-vertical {
+  0% {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
+  }
+}

@@ -148,7 +148,7 @@ export const ElementLight = () => {
           <div className="absolute w-[1920px] h-[1447px] top-[600px] left-0">
             <div className="w-[1920px] pt-[3px] pb-[1.8px] px-0 absolute top-[150px] left-0 flex flex-col items-center">
               <p className="w-fit mt-[-1.00px] font-www-toat-co-kr-semantic-heading-5 font-[number:var(--www-toat-co-kr-semantic-heading-5-font-weight)] text-black text-[length:var(--www-toat-co-kr-semantic-heading-5-font-size)] text-center leading-[var(--www-toat-co-kr-semantic-heading-5-line-height)] whitespace-nowrap relative tracking-[var(--www-toat-co-kr-semantic-heading-5-letter-spacing)] [font-style:var(--www-toat-co-kr-semantic-heading-5-font-style)]">
-                투애티는 더 넓고 다양한 위치에서 동일한 서비스를 제공합니다.
+                리체움은 더 넓고 다양한 위치에서 동일한 서비스를 제공합니다.
               </p>
             </div>
 
@@ -160,8 +160,8 @@ export const ElementLight = () => {
                     alt="Vertical building glass facade"
                     height={648}
                     radius={7}
-                    speed={4.0}
-                    overscan={1.35}
+                    speed={0.6}
+                    overscan={1.3}
                   />
                 </div>
               </div>
@@ -215,18 +215,6 @@ export const ElementLight = () => {
           <div className="relative self-stretch w-full flex-[0_0_auto] mb-4">
             <OperatingHours />
           </div>
-
-          <button className="flex items-center gap-2.5 pl-[666.91px] pr-[666.92px] pt-2.5 pb-[11.14px] relative self-stretch w-full flex-[0_0_auto] bg-white rounded-full border border-solid border-black hover:bg-gray-50 transition-colors">
-            <img
-              className="relative flex-[0_0_auto]"
-              alt="Contact Icon"
-              src="https://c.animaapp.com/8WnQ795G/img/container-1.svg"
-            />
-
-            <div className="w-fit mt-[-1.00px] mr-[-0.83px] [font-family:'Noto_Sans_KR',Helvetica] font-bold text-black text-xs text-center leading-[17.1px] whitespace-nowrap relative tracking-[0]">
-              문의하기
-            </div>
-          </button>
         </div>
 
         <footer className="flex flex-col max-w-[1440px] w-[1440px] items-center gap-5 pt-5 pb-0 px-5 absolute top-[6250px] left-[229px]">

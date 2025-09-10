@@ -7,6 +7,7 @@ import { FooterSection } from "./sections/FooterSection/FooterSection";
 import { HeaderSection } from "./sections/HeaderSection/HeaderSection";
 import { MainContentSection } from "./sections/MainContentSection/MainContentSection";
 import { SidebarSection } from "./sections/SidebarSection/SidebarSection";
+import { ParallaxPan } from "../../components/ParallaxPan";
 import { TextContentSection } from "./sections/TextContentSection/TextContentSection";
 
 export const ElementLight = () => {
@@ -154,7 +155,14 @@ export const ElementLight = () => {
             <div className="flex w-[1940px] h-[561px] items-start absolute top-[562px] -left-2.5">
               <div className="flex flex-col h-[648px] items-start px-2.5 py-0 relative flex-1 grow mb-[-87.00px]">
                 <div id="anchor-photo" className="flex flex-col h-[648px] items-start relative self-stretch w-full">
-                  <div className="relative self-stretch w-full h-[648px] rounded-[7px] bg-[url(https://c.animaapp.com/8WnQ795G/img/3c45b31276631-jpg.png)] bg-cover bg-[50%_50%]" />
+                  <ParallaxPan
+                    src="/images/building.jpg"
+                    alt="Vertical building glass facade"
+                    height={648}
+                    radius={7}
+                    speed={4.0}
+                    overscan={1.35}
+                  />
                 </div>
               </div>
             </div>

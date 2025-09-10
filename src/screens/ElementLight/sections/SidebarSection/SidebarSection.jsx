@@ -1,25 +1,23 @@
 import React from "react";
+// Typing moved to ElementLight at absolute position
 
-export const HeroSection = () => {
-  const heroData = {
+export const SidebarSection = () => {
+  const sectionData = {
     title: "COMMUNICATION",
     description: [
       "리체움학원 블라블라",
       "모든 대화는 더 나은 서비스에 큰 도움이 됩니다.",
       "언제나 열린 마음으로 소통할 것을 약속드립니다.",
     ],
-    backgroundImage: "https://c.animaapp.com/Z8KM1xq0/img/image-1.png",
+    backgroundImage: "https://c.animaapp.com/8WnQ795G/img/image-1.png",
   };
 
   return (
-    <section
-      className="flex flex-col w-[1920px] items-start absolute top-[2519px] left-0"
-      role="banner"
-    >
+    <section id="anchor-communication" className="flex flex-col w-[1920px] items-start absolute top-[1447px] left-0">
       <img
         className="absolute w-[1920px] h-[640px] top-0 left-0"
-        alt="Communication section background"
-        src={heroData.backgroundImage}
+        alt="Background image for communication section"
+        src={sectionData.backgroundImage}
       />
 
       <div className="flex flex-col items-start relative self-stretch w-full flex-[0_0_auto]">
@@ -29,17 +27,19 @@ export const HeroSection = () => {
 
             <div className="flex flex-col items-start gap-[31px] pt-5 pb-[21px] px-0 relative self-stretch w-full flex-[0_0_auto]">
               <header className="flex flex-col items-center relative self-stretch w-full flex-[0_0_auto]">
-                <h1 className="relative self-stretch mt-[-1.00px] font-www-toat-co-kr-semantic-heading-2 font-[number:var(--www-toat-co-kr-semantic-heading-2-font-weight)] text-black text-[length:var(--www-toat-co-kr-semantic-heading-2-font-size)] text-center tracking-[var(--www-toat-co-kr-semantic-heading-2-letter-spacing)] leading-[var(--www-toat-co-kr-semantic-heading-2-line-height)] [font-style:var(--www-toat-co-kr-semantic-heading-2-font-style)]">
-                  {heroData.title}
-                </h1>
+                <h2 className="relative self-stretch mt-[-1.00px] font-www-toat-co-kr-semantic-heading-2 font-[number:var(--www-toat-co-kr-semantic-heading-2-font-weight)] text-black text-[length:var(--www-toat-co-kr-semantic-heading-2-font-size)] text-center tracking-[var(--www-toat-co-kr-semantic-heading-2-letter-spacing)] leading-[var(--www-toat-co-kr-semantic-heading-2-line-height)] [font-style:var(--www-toat-co-kr-semantic-heading-2-font-style)]">
+                  {sectionData.title}
+                </h2>
               </header>
+
+              {/* Typing effect removed here */}
 
               <div className="flex flex-col items-center pt-[20.5px] pb-[0.5px] px-0 relative self-stretch w-full flex-[0_0_auto]">
                 <p className="self-stretch mt-[-1.00px] font-www-toat-co-kr-noto-sans-KR-regular font-[number:var(--www-toat-co-kr-noto-sans-KR-regular-font-weight)] text-black text-[length:var(--www-toat-co-kr-noto-sans-KR-regular-font-size)] text-center leading-[var(--www-toat-co-kr-noto-sans-KR-regular-line-height)] relative tracking-[var(--www-toat-co-kr-noto-sans-KR-regular-letter-spacing)] [font-style:var(--www-toat-co-kr-noto-sans-KR-regular-font-style)]">
-                  {heroData.description.map((line, index) => (
+                  {sectionData.description.map((line, index) => (
                     <React.Fragment key={index}>
                       {line}
-                      {index < heroData.description.length - 1 && <br />}
+                      {index < sectionData.description.length - 1 && <br />}
                     </React.Fragment>
                   ))}
                 </p>

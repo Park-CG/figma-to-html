@@ -7,6 +7,8 @@ module.exports = {
           "wwwtoatcokralizarin-crimson": "var(--wwwtoatcokralizarin-crimson)",
         },
         fontFamily: {
+          "m3-title-large-emphasized":
+            "var(--m3-title-large-emphasized-font-family)",
           "www-toat-co-kr-noto-sans-KR-bold":
             "var(--www-toat-co-kr-noto-sans-KR-bold-font-family)",
           "www-toat-co-kr-noto-sans-KR-regular":

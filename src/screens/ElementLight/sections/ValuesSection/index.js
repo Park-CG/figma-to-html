@@ -1,1 +1,0 @@
-export { ValuesSection } from "./ValuesSection";

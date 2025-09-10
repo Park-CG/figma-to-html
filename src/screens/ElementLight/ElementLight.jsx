@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { LyceumAutoTyping } from "./sections/LyceumAutoTyping";
 import { OperatingHours } from "../../components/OperatingHours";
+import { AnimatedBackdrop } from "../../components/AnimatedBackdrop";
 import { ContentAreaSection } from "./sections/ContentAreaSection";
 import { FooterSection } from "./sections/FooterSection/FooterSection";
 import { HeaderSection } from "./sections/HeaderSection/HeaderSection";
@@ -289,8 +290,9 @@ export const ElementLight = () => {
         </footer>
 
         {/* Auto typing at original decorative position */}
-        <div className="absolute w-[1699px] h-[367px] top-[416px] left-[47px]">
-          <div className="relative w-[1200px] h-[230px] top-[69px] left-[29px]">
+        <div className="absolute top-[416px] left-1/2 -translate-x-1/2 w-auto h-auto">
+          <div className="relative w-auto h-auto top-[69px] flex justify-center">
+            <AnimatedBackdrop />
             <LyceumAutoTyping text="Lyceum English" durationMs={2000} showCursor={true} />
           </div>
         </div>

@@ -201,3 +201,37 @@
 .animate-blink {
   animation: blink 1s step-end infinite;
 }
+
+/* Backdrop blob animation */
+.blob {
+  border-radius: 50% 35% 60% 40% / 60% 40% 65% 35%;
+  filter: blur(16px);
+  animation: blob-float 7s ease-in-out infinite;
+}
+
+.blob-delay-1 {
+  animation-delay: 1.5s;
+}
+
+.blob-delay-2 {
+  animation-delay: 3s;
+}
+
+@keyframes blob-float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(-60px, 30px) scale(1.08);
+  }
+  50% {
+    transform: translate(30px, 0) scale(0.95);
+  }
+  75% {
+    transform: translate(60px, -36px) scale(1.05);
+  }
+}
+
+/* Optional per-blob speed modifiers */
+.blob-fast { animation-duration: 6s; }
+.blob-slow { animation-duration: 9s; }

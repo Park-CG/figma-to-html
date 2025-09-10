@@ -10,8 +10,12 @@ export const LyceumAutoTyping = ({
   const containerRef = useRef(null);
   const textRef = useRef(null);
   const [maskWidth, setMaskWidth] = useState(0);
+  const [fullTextWidth, setFullTextWidth] = useState(0);
   const [textHeight, setTextHeight] = useState(128);
   const cursorWidth = 6;
+  const horizontalPaddingLeft = 12;
+  const horizontalPaddingRight = cursorWidth + 12;
+  const verticalPadding = 16;
 
   useEffect(() => {
     let rafId;
@@ -21,11 +25,12 @@ export const LyceumAutoTyping = ({
       if (!el) return;
       const fullWidth = el.scrollWidth;
       const cs = getComputedStyle(el);
-      const fontSize = parseFloat(cs.fontSize) || 128;
+      const fontSize = parseFloat(cs.fontSize) || 110;
       const lineH = parseFloat(cs.lineHeight);
       const computedLineHeight = Number.isFinite(lineH) ? lineH : fontSize * 1.26;
-      setTextHeight(Math.ceil(computedLineHeight + 8));
+      setTextHeight(Math.ceil(computedLineHeight + 24));
       setMaskWidth(0);
+      setFullTextWidth(fullWidth);
       const start = performance.now() + delayMs;
       const tick = (t) => {
         if (cancelled) return;
@@ -55,26 +60,39 @@ export const LyceumAutoTyping = ({
 
   return (
     <div className={className} aria-label="Lyceum auto typing" ref={containerRef}>
-      <div style={{ position: "relative", display: "inline-block" }}>
+      <div
+        style={{
+          position: "relative",
+          display: "inline-block",
+          width:
+            (fullTextWidth
+              ? fullTextWidth + horizontalPaddingLeft + horizontalPaddingRight
+              : maskWidth + horizontalPaddingLeft + horizontalPaddingRight),
+        }}
+      >
         <div
           style={{
             position: "absolute",
             top: 0,
             left: 0,
-            height: textHeight,
-            width: Math.max(0, maskWidth),
+            height: textHeight + verticalPadding * 2,
+            width: Math.max(0, maskWidth + horizontalPaddingLeft + horizontalPaddingRight),
             overflow: "hidden",
             willChange: "width",
+            paddingLeft: horizontalPaddingLeft,
+            paddingRight: horizontalPaddingRight,
+            paddingTop: verticalPadding,
+            paddingBottom: verticalPadding,
           }}
         >
           <span
             ref={textRef}
             style={{
-              fontFamily: "Caveat, 'Apple SD Gothic Neo', Helvetica, sans-serif",
+              fontFamily: "'Dancing Script', 'Great Vibes', Caveat, 'Apple SD Gothic Neo', Helvetica, sans-serif",
               fontWeight: 700,
               fontSize: 200,
               lineHeight: "200px",
-              letterSpacing: 28.16,
+              letterSpacing: 8,
               color: "#000",
               whiteSpace: "nowrap",
               display: "inline-block",
@@ -97,6 +115,32 @@ export const LyceumAutoTyping = ({
               }}
             />
           )}
+        </div>
+        {/* Invisible sizing box to stabilize container to full width/height */}
+        <div
+          aria-hidden
+          style={{
+            visibility: "hidden",
+            paddingLeft: horizontalPaddingLeft,
+            paddingRight: horizontalPaddingRight,
+            paddingTop: verticalPadding,
+            paddingBottom: verticalPadding,
+            height: textHeight + verticalPadding * 2,
+          }}
+        >
+          <span
+            style={{
+              fontFamily: "'Dancing Script', 'Great Vibes', Caveat, 'Apple SD Gothic Neo', Helvetica, sans-serif",
+              fontWeight: 700,
+              fontSize: 200,
+              lineHeight: "200px",
+              letterSpacing: 8,
+              whiteSpace: "nowrap",
+              display: "inline-block",
+            }}
+          >
+            {text}
+          </span>
         </div>
       </div>
     </div>

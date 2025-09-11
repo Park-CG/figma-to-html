@@ -1,0 +1,35 @@
+.glow-rect {
+  position: absolute;
+  border-radius: var(--r, 40px);
+  transform: rotate(var(--rotate, 0deg));
+  background: radial-gradient(100% 100% at 0% 0%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
+  /* Backdrop blur behind element */
+  -webkit-backdrop-filter: blur(21px);
+          backdrop-filter: blur(21px);
+}
+
+/* Effect-only class: applies glow without affecting layout/position */
+.figma-rect-effect {
+  background: radial-gradient(100% 100% at 0% 0%, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 100%);
+  -webkit-backdrop-filter: blur(21px);
+          backdrop-filter: blur(21px);
+  transition: background 200ms ease, filter 200ms ease, opacity 200ms ease;
+}
+
+.figma-rect-effect:hover {
+  /* hover: 조금 더 짙고 부드럽게 */
+  background: radial-gradient(100% 100% at 0% 0%, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0) 100%);
+  -webkit-backdrop-filter: blur(28px);
+          backdrop-filter: blur(28px);
+  filter: brightness(0.94) saturate(1.15);
+}
+
+/* Parent hover also triggers the same effect, so text 영역 hover에도 적용 */
+.glow-scope:hover .figma-rect-effect {
+  background: radial-gradient(100% 100% at 0% 0%, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0) 100%);
+  -webkit-backdrop-filter: blur(28px);
+          backdrop-filter: blur(28px);
+  filter: brightness(0.94) saturate(1.15);
+}
+
+

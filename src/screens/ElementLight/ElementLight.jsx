@@ -160,8 +160,8 @@ export const ElementLight = () => {
                     alt="Vertical building glass facade"
                     height={648}
                     radius={7}
-                    speed={0.6}
-                    overscan={1.3}
+                    speed={1.2}
+                    overscan={2.0}
                   />
                 </div>
               </div>

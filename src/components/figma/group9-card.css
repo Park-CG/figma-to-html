@@ -1,0 +1,56 @@
+.group9-card {
+  position: relative;
+  border-radius: var(--r, 40px);
+  overflow: hidden;
+  /* Gradient border using mask */
+  --border: 2px;
+  padding: var(--border);
+  background: linear-gradient(135deg, #ff7649, rgba(255, 255, 255, 0.8));
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+}
+
+.group9-card::before {
+  content: "";
+  position: absolute;
+  inset: var(--border);
+  border-radius: calc(var(--r, 40px) - var(--border));
+  background: radial-gradient(100% 100% at 0% 0%, rgba(255,255,255,0.40), rgba(255,255,255,0) 80%),
+              radial-gradient(60% 60% at 100% 80%, rgba(64, 147, 255, 0.45), rgba(64,147,255,0) 85%),
+              radial-gradient(60% 60% at -10% 30%, rgba(64, 147, 255, 0.45), rgba(64,147,255,0) 85%),
+              radial-gradient(120% 120% at 70% -20%, rgba(255,255,255,0.25), rgba(255,255,255,0) 80%),
+              linear-gradient(180deg, #2a2334 0%, #0f0c16 100%);
+  mix-blend-mode: screen;
+  filter: saturate(1.15) brightness(1.02) blur(6px);
+  opacity: 0.9;
+}
+
+.group9-content {
+  position: relative;
+  z-index: 1;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  height: 100%;
+  padding: 28px 32px;
+  font-family: Manrope, system-ui, -apple-system, Segoe UI, Roboto, "Apple SD Gothic Neo", sans-serif;
+  color: #1f2937; /* dark gray */
+}
+
+.group9-name {
+  font-weight: 600;
+  font-size: 20px;
+  color: inherit;
+}
+
+.group9-date {
+  font-weight: 600;
+  font-size: 20px;
+  color: inherit;
+}
+
+

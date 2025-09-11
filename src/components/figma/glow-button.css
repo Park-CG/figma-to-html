@@ -1,0 +1,22 @@
+.glow-btn {
+  background: rgba(255, 255, 255, 0.38);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 9999px;
+  -webkit-backdrop-filter: blur(8px);
+          backdrop-filter: blur(8px);
+  transition: background 180ms ease, box-shadow 220ms ease, border-color 180ms ease, transform 120ms ease;
+}
+
+.glow-btn:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.18) inset,
+              0 8px 24px rgba(64, 147, 255, 0.25);
+}
+
+.glow-btn:active {
+  transform: translateY(1px);
+}
+
+

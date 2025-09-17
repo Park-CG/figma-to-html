@@ -71,15 +71,20 @@ export const ElementLight = () => {
 
   useEffect(() => {
     const measure = () => {
-      if (contentRef.current) {
-        const h = contentRef.current.scrollHeight;
-        if (h && h !== contentHeight) setContentHeight(h);
+      const root = contentRef.current;
+      const footerEl = document.getElementById("page-footer-root");
+      if (!root || !footerEl) return;
+      const rootRect = root.getBoundingClientRect();
+      const footerRect = footerEl.getBoundingClientRect();
+      const unscaledHeight = (footerRect.bottom - rootRect.top) / (scale || 1);
+      if (unscaledHeight > 0 && Math.abs(unscaledHeight - contentHeight) > 1) {
+        setContentHeight(Math.ceil(unscaledHeight));
       }
     };
     measure();
     window.addEventListener("resize", measure);
     return () => window.removeEventListener("resize", measure);
-  }, [contentHeight]);
+  }, [scale, contentHeight]);
 
   return (
     <div
@@ -212,7 +217,7 @@ export const ElementLight = () => {
                 </div>
               </div>
 
-              <footer className="flex flex-col max-w-[1440px] w-[1440px] items-center gap-5 pt-5 pb-0 px-5 absolute top-[6250px] left-[229px]">
+              <footer id="page-footer-root" className="flex flex-col max-w-[1440px] w-[1440px] items-center gap-5 pt-5 pb-0 px-5 absolute top-[6250px] left-[229px]">
                 <div className="relative max-w-[1400px] w-full h-px border-t [border-top-style:solid] border-[#0000000d]" />
 
                 <div className="flex w-[1440px] items-start relative flex-[0_0_auto] ml-[-20.00px] mr-[-20.00px]">
@@ -230,7 +235,7 @@ export const ElementLight = () => {
                         </div>
 
                         <div className="flex flex-col w-[920px] items-start pt-0 pb-[0.8px] px-0 absolute top-[0px] left-0">
-                          <p className="w-fit mt-[-1.00px] font-www-toat-co-kr-roboto-mono-regular font-[number:var(--www-toat-co-kr-roboto-mono-regular-font-weight)] text-black text-[length:var(--www-toat-co-kr-roboto-mono-regular-font-size)] leading-[var(--www-toat-co-kr-roboto-mono-regular-line-height)] whitespace-nowrap relative tracking-[var(--www-toat-co-kr-roboto-mono-regular-letter-spacing)] [font-style:var(--www-toat-co-kr-roboto-mono-regular-font-style)]">
+                          <p className="w-fit mt-[-1.00px] font-www-toat-co-kr-roboto-mono-regular font-[number:var(--www-toat-co-kr-roboto-mono-regular-font-weight)] text-black text-[length:var(--www-toat-co-kr-roboto-mono-regular-font-size)] leading-[var(--www-toat-co-kr-roboto-mono-regular-line-height)] whitespace-nowrap relative tracking-[0] [font-style:var(--www-toat-co-kr-roboto-mono-regular-font-style)]">
                             
                           </p>
                         </div>

@@ -56,6 +56,7 @@ export const ElementLight = () => {
   const contentRef = useRef(null);
   const [scale, setScale] = useState(1);
   const [contentHeight, setContentHeight] = useState(CANVAS_HEIGHT);
+  const [footerTop, setFooterTop] = useState(6250);
 
   useEffect(() => {
     const handleResize = () => {
@@ -72,19 +73,32 @@ export const ElementLight = () => {
   useEffect(() => {
     const measure = () => {
       const root = contentRef.current;
-      const footerEl = document.getElementById("page-footer-root");
-      if (!root || !footerEl) return;
+      if (!root) return;
       const rootRect = root.getBoundingClientRect();
-      const footerRect = footerEl.getBoundingClientRect();
-      const unscaledHeight = (footerRect.bottom - rootRect.top) / (scale || 1);
-      if (unscaledHeight > 0 && Math.abs(unscaledHeight - contentHeight) > 1) {
-        setContentHeight(Math.ceil(unscaledHeight));
+      const footerEl = document.getElementById("page-footer-root");
+      const operatingEl = document.getElementById("operating-hours-root");
+
+      if (operatingEl) {
+        const ohRect = operatingEl.getBoundingClientRect();
+        const ohBottomUnscaled = (ohRect.bottom - rootRect.top) / (scale || 1);
+        const nextFooterTop = Math.ceil(ohBottomUnscaled + 240); // 240px spacing
+        if (nextFooterTop > 0 && Math.abs(nextFooterTop - footerTop) > 1) {
+          setFooterTop(nextFooterTop);
+        }
+      }
+
+      if (footerEl) {
+        const footerRect = footerEl.getBoundingClientRect();
+        const unscaledHeight = (footerRect.bottom - rootRect.top) / (scale || 1);
+        if (unscaledHeight > 0 && Math.abs(unscaledHeight - contentHeight) > 1) {
+          setContentHeight(Math.ceil(unscaledHeight));
+        }
       }
     };
     measure();
     window.addEventListener("resize", measure);
     return () => window.removeEventListener("resize", measure);
-  }, [scale, contentHeight]);
+  }, [scale, contentHeight, footerTop]);
 
   return (
     <div
@@ -209,7 +223,7 @@ export const ElementLight = () => {
                 </div>
               </div>
 
-              <div className="flex flex-col w-[1920px] items-start px-[260px] py-5 top-[4584px] bg-[#f0f0e9] absolute left-0">
+              <div id="operating-hours-root" className="flex flex-col w-[1920px] items-start px-[260px] py-5 top-[4584px] bg-[#f0f0e9] absolute left-0">
                 <div className="w-[1920px] h-[79px] top-0 bg-[#f0f0e9] absolute left-0" />
 
                 <div className="relative self-stretch w-full flex-[0_0_auto] mb-4">
@@ -217,7 +231,7 @@ export const ElementLight = () => {
                 </div>
               </div>
 
-              <footer id="page-footer-root" className="flex flex-col max-w-[1440px] w-[1440px] items-center gap-5 pt-5 pb-0 px-5 absolute top-[6250px] left-[229px]">
+              <footer id="page-footer-root" className="flex flex-col max-w-[1440px] w-[1440px] items-center gap-5 pt-5 pb-0 px-5 absolute left-[229px]" style={{ top: `${footerTop}px` }}>
                 <div className="relative max-w-[1400px] w-full h-px border-t [border-top-style:solid] border-[#0000000d]" />
 
                 <div className="flex w-[1440px] items-start relative flex-[0_0_auto] ml-[-20.00px] mr-[-20.00px]">

@@ -6,9 +6,11 @@ import { ContentAreaSection } from "./sections/ContentAreaSection";
 import { FooterSection } from "./sections/FooterSection/FooterSection";
 import { HeaderSection } from "./sections/HeaderSection/HeaderSection";
 import { MainContentSection } from "./sections/MainContentSection/MainContentSection";
+import { PromoCarousel } from "./sections/PromoCarousel";
 import { SidebarSection } from "./sections/SidebarSection/SidebarSection";
 import { ParallaxPan } from "../../components/ParallaxPan";
 import { TextContentSection } from "./sections/TextContentSection/TextContentSection";
+import { Quote } from "../../components/Quote";
 
 export const ElementLight = () => {
   const navigationItems = [
@@ -25,12 +27,6 @@ export const ElementLight = () => {
       marginRight: "mr-[-4.00px]",
     },
     {
-      label: "Magazine",
-      width: "w-[113px]",
-      textWidth: "w-[101px]",
-      marginRight: "mr-[-12.00px]",
-    },
-    {
       label: "COMMUNICATION",
       width: "w-[198px]",
       textWidth: "w-[186px]",
@@ -38,24 +34,13 @@ export const ElementLight = () => {
     },
   ];
 
-  const contactInfo = [
-    {
-      label: "E-mail:",
-      value: "lyceumAC@naver.com",
-      type: "email",
-    },
-    {
-      label: "Adress:",
-      value: "부산광역시 부산진구 성지로113번길 35 2층(초읍동)",
-      type: "address",
-    },
-  ];
+  // Deprecated: contact display is handled by TextContentSection
+  const contactInfo = [];
 
   const anchorIdsInOrder = [
     "anchor-image",
     "anchor-photo",
     "anchor-center",
-    "anchor-communication",
   ];
 
   const scrollToId = (id) => {
@@ -93,13 +78,13 @@ export const ElementLight = () => {
         <div className="max-w-[1920px] mx-auto flex items-center justify-between px-6 py-1">
           <div className="relative max-w-[84px] w-[84px] h-[84px] bg-[url(https://c.animaapp.com/8WnQ795G/img/lyceum@2x.png)] bg-cover bg-[50%_50%]" />
 
-          <nav className="flex items-center gap-1" role="navigation" aria-label="Main navigation">
+          <nav className="flex items-center gap-4" role="navigation" aria-label="Main navigation">
             {navigationItems.map((item, index) => (
               <button
                 key={index}
                 type="button"
                 onClick={() => scrollToId(anchorIdsInOrder[index] || anchorIdsInOrder[anchorIdsInOrder.length - 1])}
-                className={`px-3 py-2 font-m3-title-large-emphasized text-black hover:opacity-70 transition-opacity ${item.marginRight}`}
+                className={`px-3 py-2 font-m3-title-large-emphasized text-black hover:opacity-70 transition-opacity`}
               >
                 {item.label}
               </button>
@@ -138,18 +123,16 @@ export const ElementLight = () => {
               src="https://c.animaapp.com/8WnQ795G/img/image.png"
             />
 
-            <div className="flex items-start justify-center gap-60 relative w-full">
-              <HeaderSection />
-              <MainContentSection />
-              <FooterSection />
+            <div className="relative w-full">
+              <PromoCarousel />
             </div>
           </div>
 
           <div className="absolute w-[1920px] h-[1447px] top-[600px] left-0">
-            <div className="w-[1920px] pt-[3px] pb-[1.8px] px-0 absolute top-[150px] left-0 flex flex-col items-center">
-              <p className="w-fit mt-[-1.00px] font-www-toat-co-kr-semantic-heading-5 font-[number:var(--www-toat-co-kr-semantic-heading-5-font-weight)] text-black text-[length:var(--www-toat-co-kr-semantic-heading-5-font-size)] text-center leading-[var(--www-toat-co-kr-semantic-heading-5-line-height)] whitespace-nowrap relative tracking-[var(--www-toat-co-kr-semantic-heading-5-letter-spacing)] [font-style:var(--www-toat-co-kr-semantic-heading-5-font-style)]">
-                리체움은 더 넓고 다양한 위치에서 동일한 서비스를 제공합니다.
-              </p>
+            <div className="w-[1920px] pt-[3px] pb-[1.8px] px-0 absolute top-[270px] left-0 flex flex-col items-center">
+              <Quote>
+              리체움은 폭넓은 학습 상황에서 균일한 교육 서비스를 제공합니다.
+              </Quote>
             </div>
 
             <div className="flex w-[1940px] h-[561px] items-start absolute top-[562px] -left-2.5">
@@ -187,7 +170,7 @@ export const ElementLight = () => {
               </div>
 
               <a
-                className="inline-flex items-center gap-2.5 pt-2.5 pb-[11.14px] px-[15px] absolute top-0 left-[910px] bg-white border border-solid border-black"
+                className="inline-flex items-center gap-2.5 pt-2.5 pb-[11.14px] px-[15px] absolute top-0 left-[910px] bg-white border border-solid border-black whitespace-nowrap leading-none align-middle"
                 href="https://map.naver.com/p/search/%EB%A6%AC%EC%B2%B4%EC%9B%80%20%EC%98%81%EC%96%B4%ED%95%99%EC%9B%90/place/1186165201?placePath=/home?entry=pll&amp;from=nx&amp;fromNxList=true&amp;fromPanelNum=2&amp;timestamp=202509031306&amp;locale=ko&amp;svcName=map_pcv5&amp;searchText=%EB%A6%AC%EC%B2%B4%EC%9B%80%20%EC%98%81%EC%96%B4%ED%95%99%EC%9B%90&amp;searchType=place&amp;c=15.00,0,0,0,dh"
                 rel="noopener noreferrer"
                 target="_blank"
@@ -199,9 +182,9 @@ export const ElementLight = () => {
                   src="https://c.animaapp.com/8WnQ795G/img/container.svg"
                 />
 
-                <div className="w-fit mt-[-1.00px] [font-family:'Noto_Sans_KR',Helvetica] font-bold text-black text-xs text-center leading-[17.1px] whitespace-nowrap relative tracking-[0]">
+                <span className="w-fit [font-family:'Noto_Sans_KR',Helvetica] font-bold text-black text-xs text-center leading-none whitespace-nowrap relative tracking-[0]">
                   지도에서 보기
-                </div>
+                </span>
               </a>
             </div>
 
@@ -225,53 +208,27 @@ export const ElementLight = () => {
               <div className="absolute w-[920px] h-[134px] top-5 left-5">
                 <TextContentSection />
 
-                {contactInfo.map((contact, index) => (
-                  <div
-                    key={index}
-                    className={`flex w-[920px] h-[17px] items-center gap-[2.84e-14px] pt-0 pb-[1.8px] px-0 absolute ${index === 0 ? "top-[50px]" : "top-[67px]"} left-0`}
-                  >
-                    <div className="relative w-fit mt-[-1.90px] font-www-toat-co-kr-roboto-mono-regular font-[number:var(--www-toat-co-kr-roboto-mono-regular-font-weight)] text-black text-[length:var(--www-toat-co-kr-roboto-mono-regular-font-size)] tracking-[var(--www-toat-co-kr-roboto-mono-regular-letter-spacing)] leading-[var(--www-toat-co-kr-roboto-mono-regular-line-height)] whitespace-nowrap overflow-hidden text-ellipsis [display:-webkit-box] [-webkit-line-clamp:0] [-webkit-box-orient:vertical] [font-style:var(--www-toat-co-kr-roboto-mono-regular-font-style)]">
-                      {contact.label}
-                    </div>
+                {/* Contact info is now rendered by TextContentSection */}
 
-                    {contact.type === "email" ? (
-                      <div className="inline-flex items-start px-0 py-px relative flex-[0_0_auto] mt-[-2.00px] mb-[-2.00px]">
-                        <a
-                          href={`mailto:${contact.value}`}
-                          className="relative w-fit mt-[-1.00px] [font-family:'Roboto_Mono',Helvetica] font-normal text-black text-sm tracking-[0] leading-[16.8px] whitespace-nowrap hover:underline"
-                        >
-                          {contact.value}
-                        </a>
-                      </div>
-                    ) : (
-                      <div className="flex flex-col w-[920px] items-start pt-0 pb-[0.8px] px-0 absolute top-[33px] left-0">
-                        <p className="w-fit mt-[-1.00px] font-www-toat-co-kr-roboto-mono-regular font-[number:var(--www-toat-co-kr-roboto-mono-regular-font-weight)] text-black text-[length:var(--www-toat-co-kr-roboto-mono-regular-font-size)] leading-[var(--www-toat-co-kr-roboto-mono-regular-line-height)] whitespace-nowrap relative tracking-[var(--www-toat-co-kr-roboto-mono-regular-letter-spacing)] [font-style:var(--www-toat-co-kr-roboto-mono-regular-font-style)]">
-                          {contact.value}
-                        </p>
-                      </div>
-                    )}
-                  </div>
-                ))}
-
-                <div className="absolute w-[920px] h-[50px] top-[67px] left-0">
+                <div className="absolute w-[920px] h-[0px] top-[67px] left-0">
                   <div className="flex flex-col w-[920px] items-start pt-[15.8px] pb-[0.8px] px-0 absolute top-0 left-0">
                     <div className="relative w-fit mt-[-1.00px] font-www-toat-co-kr-roboto-mono-regular font-[number:var(--www-toat-co-kr-roboto-mono-regular-font-weight)] text-black text-[length:var(--www-toat-co-kr-roboto-mono-regular-font-size)] tracking-[var(--www-toat-co-kr-roboto-mono-regular-letter-spacing)] leading-[var(--www-toat-co-kr-roboto-mono-regular-line-height)] whitespace-nowrap [font-style:var(--www-toat-co-kr-roboto-mono-regular-font-style)]">
-                      Adress:
+                      
                     </div>
                   </div>
 
-                  <div className="flex flex-col w-[920px] items-start pt-0 pb-[0.8px] px-0 absolute top-[33px] left-0">
+                  <div className="flex flex-col w-[920px] items-start pt-0 pb-[0.8px] px-0 absolute top-[0px] left-0">
                     <p className="w-fit mt-[-1.00px] font-www-toat-co-kr-roboto-mono-regular font-[number:var(--www-toat-co-kr-roboto-mono-regular-font-weight)] text-black text-[length:var(--www-toat-co-kr-roboto-mono-regular-font-size)] leading-[var(--www-toat-co-kr-roboto-mono-regular-line-height)] whitespace-nowrap relative tracking-[var(--www-toat-co-kr-roboto-mono-regular-letter-spacing)] [font-style:var(--www-toat-co-kr-roboto-mono-regular-font-style)]">
-                      부산광역시 부산진구 성지로113번길 35 2층(초읍동)
+                      
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div className="absolute w-[920px] h-px top-[194px] left-5 border-t [border-top-style:solid] border-black" />
+              <div className="absolute w-[920px] h-px top-[194px] left-5 border-t [border-top-style:solid] border-black leading-none" />
 
               <div className="flex flex-col w-[920px] items-start pt-0 pb-[0.8px] px-0 absolute top-[234px] left-5">
-                <p className="relative w-fit mt-[-1.00px] font-www-toat-co-kr-roboto-mono-regular font-[number:var(--www-toat-co-kr-roboto-mono-regular-font-weight)] text-black text-[length:var(--www-toat-co-kr-roboto-mono-regular-font-size)] tracking-[var(--www-toat-co-kr-roboto-mono-regular-letter-spacing)] leading-[var(--www-toat-co-kr-roboto-mono-regular-line-height)] whitespace-nowrap [font-style:var(--www-toat-co-kr-roboto-mono-regular-font-style)]">
+                <p className="relative w-fit mt-[-1.00px] font-www-toat-co-kr-roboto-mono-regular font-[number:var(--www-toat-co-kr-roboto-mono-regular-font-weight)] text-black text-[length:var(--www-toat-co-kr-roboto-mono-regular-font-size)] tracking-[var(--www-toat-co-kr-roboto-mono-regular-letter-spacing)] leading-none whitespace-nowrap [font-style:var(--www-toat-co-kr-roboto-mono-regular-font-style)]">
                   Copyright© 2025 DipThink. All rights reserved.
                 </p>
               </div>

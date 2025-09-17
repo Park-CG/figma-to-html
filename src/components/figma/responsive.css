@@ -1,0 +1,14 @@
+.container-1920 {
+  max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(16px, 4vw, 60px);
+  padding-right: clamp(16px, 4vw, 60px);
+}
+
+.section-pad-y {
+  padding-top: clamp(16px, 3vw, 40px);
+  padding-bottom: clamp(16px, 3vw, 40px);
+}
+
+

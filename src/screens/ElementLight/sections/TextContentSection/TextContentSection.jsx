@@ -4,7 +4,9 @@ export const TextContentSection = () => {
   const companyData = {
     name: "리체움학원",
     company: "(주)DipThink",
-    contact: "Contact: 010-0000-0000",
+    contact: "Contact: 010-2317-2898",
+    address: "Address: 부산광역시 부산진구 성지로113번길 35 2층(초읍동)",
+    email: "email: lyceumAC@naver.com"
   };
 
   return (
@@ -29,9 +31,20 @@ export const TextContentSection = () => {
         </p>
       </header>
 
-      <address className="absolute w-[194px] h-[17px] top-8 left-0 font-www-toat-co-kr-roboto-mono-regular font-[number:var(--www-toat-co-kr-roboto-mono-regular-font-weight)] text-black text-[length:var(--www-toat-co-kr-roboto-mono-regular-font-size)] tracking-[var(--www-toat-co-kr-roboto-mono-regular-letter-spacing)] leading-[var(--www-toat-co-kr-roboto-mono-regular-line-height)] whitespace-nowrap [font-style:var(--www-toat-co-kr-roboto-mono-regular-font-style)] not-italic">
-        {companyData.contact}
-      </address>
+      <div className="absolute left-0 top-[28px] flex flex-col gap-[6px]">
+        <a
+          href={`mailto:${companyData.email}`}
+          className="relative w-fit [font-family:'Roboto_Mono',Helvetica] font-normal text-black text-sm tracking-[0] leading-[16.8px] whitespace-nowrap hover:underline"
+        >
+          {companyData.email}
+        </a>
+        <address className="font-www-toat-co-kr-roboto-mono-regular font-[number:var(--www-toat-co-kr-roboto-mono-regular-font-weight)] text-black text-[length:var(--www-toat-co-kr-roboto-mono-regular-font-size)] tracking-[var(--www-toat-co-kr-roboto-mono-regular-letter-spacing)] leading-[16.8px] whitespace-nowrap [font-style:var(--www-toat-co-kr-roboto-mono-regular-font-style)] not-italic">
+          {companyData.contact}
+        </address>
+        <address className="font-www-toat-co-kr-roboto-mono-regular font-[number:var(--www-toat-co-kr-roboto-mono-regular-font-weight)] text-black text-[length:var(--www-toat-co-kr-roboto-mono-regular-font-size)] tracking-[var(--www-toat-co-kr-roboto-mono-regular-letter-spacing)] leading-[16.8px] whitespace-nowrap [font-style:var(--www-toat-co-kr-roboto-mono-regular-font-style)] not-italic">
+          {companyData.address}
+        </address>
+      </div>
     </section>
   );
 };

@@ -1,0 +1,95 @@
+.promo-carousel {
+  position: relative;
+  width: 100%;
+  perspective: 1200px;
+  /* Preview tuning variables */
+  --spreadX: 35%;
+  --depthZ: -160px;
+  --tiltDeg: 28deg;
+  --sideScale: 0.92;
+  --sideOpacity: 0.45;
+  --controls-bottom: 30px; /* distance from bottom of section */
+  --controls-gap: 20px;
+  /* Reserve fixed space so bottom offset can actually move */
+  padding-bottom: 160px;
+}
+
+.promo-viewport {
+  position: relative;
+  width: 100%;
+  height: var(--pc-height, auto);
+  overflow: visible;
+}
+
+.promo-slide {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1), opacity 500ms ease;
+  pointer-events: none;
+}
+
+.promo-slide--active {
+  transform: translateX(0) translateZ(0) scale(1) rotateY(0deg);
+  opacity: 1;
+  z-index: 3;
+  pointer-events: auto;
+}
+
+.promo-slide--left {
+  transform: translateX(calc(-1 * var(--spreadX))) translateZ(var(--depthZ)) scale(var(--sideScale)) rotateY(calc(-1 * var(--tiltDeg)));
+  opacity: var(--sideOpacity);
+  z-index: 2;
+}
+
+.promo-slide--right {
+  transform: translateX(var(--spreadX)) translateZ(var(--depthZ)) scale(var(--sideScale)) rotateY(var(--tiltDeg));
+  opacity: var(--sideOpacity);
+  z-index: 2;
+}
+
+.promo-slide--far { /* hide non-adjacent slides */
+  transform: translateX(0) translateZ(-400px) scale(0.8) rotateY(0deg);
+  opacity: 0;
+  z-index: 0;
+}
+
+.promo-btn {
+  background: rgba(255,255,255,0.9);
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 9999px;
+  padding: 8px 12px;
+  margin: 0 8px;
+  cursor: pointer;
+}
+
+.promo-controls {
+  position: absolute;
+  left: 50%;
+  bottom: var(--controls-bottom);
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--controls-gap);
+  z-index: 5;
+  pointer-events: none;
+}
+.promo-controls .promo-btn { pointer-events: auto; }
+.promo-controls .promo-dots { pointer-events: auto; }
+
+.promo-dots { display: flex; gap: 8px; }
+
+.promo-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.25);
+}
+
+.promo-dot--active {
+  background: rgba(0,0,0,0.6);
+}
+
+

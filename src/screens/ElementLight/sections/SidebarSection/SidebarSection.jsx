@@ -5,9 +5,8 @@ export const SidebarSection = () => {
   const sectionData = {
     title: "COMMUNICATION",
     description: [
-      "리체움학원 블라블라",
-      "모든 대화는 더 나은 서비스에 큰 도움이 됩니다.",
-      "언제나 열린 마음으로 소통할 것을 약속드립니다.",
+      "리체움학원에 대해 궁금한 점이 있으신가요?",
+      "여러분의 의견은 더 좋은 서비스를 만드는 데 큰 힘이 됩니다."
     ],
     backgroundImage: "https://c.animaapp.com/8WnQ795G/img/image-1.png",
   };
